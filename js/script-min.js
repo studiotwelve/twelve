@@ -1,0 +1,1 @@
+$(function(){if($(window).innerWidth()<1025){window.scrollTo(0,1)}});

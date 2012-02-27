@@ -1,0 +1,25 @@
+/*-- Your styles go here --*/
+
+
+
+/*-- Device specific styles. We left out "handheld" for a reason -this way it scales down dependent on the viewport size for any device with a screen and always looks the same, wether your on a handheld or not... Going Down? --*/
+
+@media only screen and (max-width:1140px){ /** Browsers < 1280px **/
+
+}
+
+@media only screen and (max-width:1024px){ /** iPad Landscape **/
+
+}
+
+@media only screen and (max-width:768px){ /** iPad Portrait **/
+
+}
+
+@media only screen and (max-width:480px){ /** iPhone Landscape **/
+
+}
+
+@media only screen and (max-width:320px){ /** iPhone Portrait **/
+
+}

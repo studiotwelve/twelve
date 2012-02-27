@@ -1,0 +1,14 @@
+/* TEAM */
+  Developer:	Michael Hurley
+  Site:			http://s12.in
+  Twitter:		@s12in
+  Location:		Cylon occupied Caprica ¡<
+
+/* THANKS */
+  h5bp:		h5bp.com
+  1140gs:	cssgrid.net
+  drupal:	drupal.org
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: cssfx, modernizr, css3-media-queries, finalize, jQuery, easing, html5support
