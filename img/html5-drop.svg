@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+<filter  id="drop">
+	<feOffset  dx="0" dy="20" result="offOut" in="SourceAlpha"></feOffset>
+	<feGaussianBlur  stdDeviation="30" result="blurOut" in="offOut"></feGaussianBlur>
+	<feBlend  in2="blurOut" in="SourceGraphic" mode="normal"></feBlend>
+</filter>
+<title>HTML5 Logo Badge</title>
+<g filter="url(#drop)">
+	<polyline fill="#E34F26" points="84.867,639.844 35.859,90 574.945,90 525.938,639.844 304.805,702 	"/>
+</g>
+<path fill="#EF652A" d="M306,654.188l178.102-49.008l41.836-470.953H306"/>
+<path fill="#EBEBEB" d="M306,338.625h-89.648l-5.977-69.328H306v-66.938h-1.195H136.266l1.195,17.93l16.734,186.469H306V338.625z
+	 M306,514.336h-1.195l-75.305-20.32l-4.781-53.789h-35.859h-31.078l8.367,106.383l138.656,38.25H306V514.336z"/>
+<path fill="#FFFFFF" d="M304.805,338.625v68.133h83.672l-8.367,87.258l-75.305,20.32v70.523l138.656-38.25l1.195-11.953
+	l15.539-178.102l2.391-17.93h-19.125H304.805z M304.805,202.359v41.836v25.102l0,0h163.758l0,0l0,0l1.195-14.344l3.586-34.664
+	l1.195-17.93H304.805z"/>
+</svg>

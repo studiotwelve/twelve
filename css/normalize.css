@@ -1,3 +1,6 @@
+/* @override 
+	http://twelve.s12.in/css/normalize.css */
+
 /*
  * HTML5 Boilerplate
  *
@@ -40,8 +43,8 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
  * Also: hot pink! (or customize the background color to match your design)
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { color: #fff; text-shadow: none; background-color: #ff00ff; }
+::selection { color: #fff; text-shadow: none; background-color: #ff00ff; }
 
 /* =============================================================================
    Links

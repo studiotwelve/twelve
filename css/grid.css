@@ -57,3 +57,8 @@
 		padding: 0 20px;
 	}
 }
+
+/* Contain floats: h5bp.com/q */
+.row:before, .row:after { content: ""; display: table; }
+.row:after { clear: both; }
+.row { *zoom: 1; } /* just in case we automatically hack the floats on rows */
