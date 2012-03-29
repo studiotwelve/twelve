@@ -22,19 +22,87 @@
 	<script src="/js/cssfx.js"></script>
 	<script src="/js/modernizr.js"></script>
 </head>
-<body>
-
-	<div id="top" class="container first">
+<body><!--example-setup-->
+	<header class="container">
 		<div class="row first last">
-			<div class="col fivecol first">
-				<hgroup>
-					<h1 role="title">12</h1>
-					<h2 role="slogan">A personal extension of h5bp</h2>
-				</hgroup>
+			<h1 class="fivecol first" id="site-title">12<span id="site-slogan"> A personal extension of h5bp</span></h1>
+			<h2 class="sevencol last" id="site-description"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-device-graphics-multimedia-performance-semantics-storage.png" width="357" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage"></h2>
+		</div>
+	</header><!--we're building a single page site but here's what you might do...
+	<section class="container" role="navigation">
+		<div class="row first last">
+			<nav class="ninecol first">
+				<ul>
+					<li class="active"><a href="/">Home</a></li>
+				</ul>
+			</nav>
+			<div class="ninecol last" id="search-form-wrapper"></div>
+		</div>
+	</section>-->
+	<section class="container" role="info" id="slides">
+		<div class="row first last">
+			<div class="twelvecol first last">
+				<h1>A really stylish slider is going to go here!</h1>
 			</div>
 		</div>
-	</div>
-
+	</section>
+	<section class="container" role="main"><!-- ///// CONTENT \\\\\ customize to suite-->
+		<h1 class="row" id="technology">Technology</h1>
+		<div class="row">
+			<div class="fourcol first box">
+				<h2>html5</h2>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="html5-logo">
+				<title>HTML5 Logo Badge</title>
+				<path fill="#E34F26" d="M71,460 L30,0 481,0 440,460 255,512"/>
+				<path fill="#EF652A" d="M256,472 L405,431 440,37 256,37"/>
+				<path fill="#EBEBEB" d="M256,208 L181,208 176,150 256,150 256,94 255,94 114,94 115,109 129,265 256,265zM256,355 L255,355 192,338 188,293 158,293 132,293 139,382 255,414 256,414z"/>
+				<path fill="#FFF" d="M255,208 L255,265 325,265 318,338 255,355 255,414 371,382 372,372 385,223 387,208 371,208zM255,94 L255,129 255,150 255,150 392,150 392,150 392,150 393,138 396,109 397,94z"/>
+				</svg>
+				<p>Stop worrying about polyfills and hacks and develop your websites stress free.</p>
+			</div>
+			<div class="fourcol box">
+				<h2>css3</h2>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.5 199.5" id="css3-logo">
+				  <title>HTML5 CSS Styling Logo</title>
+				  <path d="M32.8,0L25.4,37.0 176.0,37.0 171.3,60.9 20.6,60.9 13.3,97.9 163.9,97.9 155.5,140.1 94.8,160.2 42.2,140.1 45.8,121.8 8.8,121.8 0,166.2 87.0,199.5 187.3,166.2 200.6,99.4 203.3,86.0 220.4,0z"/>
+				</svg>
+				<p>Use all the stylish new features of css3.</p>
+			</div>
+			<div class="fourcol last box">
+				<h2>1140gs</h2>
+				<p>The ultimate grid system, highly responsive, incredibly powerful.</p>
+			</div>
+		</div>		
+	</section>
+	<section class="container" id="styling" role="testing">
+		<div class="row" id="baseline">
+			<div class="twelvecol first last">
+				<h2>Baseline</h2>
+				<p>We need this establishing a universal ux. <em>&emdash;The order here is logical.</em></p>
+				<article>
+					<header>
+						<hgroup>
+							<h3 role="title">Semantics and Standards</h3>
+							<h4 role="sub-title">Speaking of logic.</h4>
+						</hgroup>
+					</header>
+					<section role="synopsis">Thinking about logical order and such sparks a whole thought process on <em>the way things <strong>should</strong> be</em>, the entire concept of html5, for me, weighs heavy on semantics, standards, etc.</section>
+					<section role="body">
+						<p>There is a specific intention for each of the new elements and attributes, also a revisited or renewed intention for some of the old ones. Take this article for example. The article element wasn't meant to be just thrown into your markup and filled with just any content it's meant to contain a group of other elements new and old that make up exactly that an article. Okay well what should an article contain, conceptually. Look at other mediums that use articles like magazines, newspapers, etc. Well your standard article in these contexts is made up of a few things, you have a header with a title and sub-title, oh and by the way the role attribute intended for sections firstly isn't just for sections, secondly it isn't just for safari's reader function, we'll get back to roles later, next you might have a synopsis followed by the body which is not meant to be just text it could have anything in it, especially on the web, audio, video, images, etc., in a more technical setting you might have references, and meta data. With paper media you also might have what html5 calls an aside and yes while aside were meant to be positioned to the left or right of their siblings that doesn't make them good for sidebars in website layouts, thats just one example from a list apart, i think, that got used literally, the more logical application is within articles for an authors bio or for figures like in text books and technical documents, they are good for side notes, but most importantly they are like articles and they are meant to contain sub-sections eg a title, body, footer. Lets dig deeper and talk about standards and not just semantics. Most importantly you should come up with a set of rules for how you write your markup, and i break my own rules all the time even in writing this i'm thinking about all the rules i'm breaking just in this document alone, okay so lets go all the way back and look at the big picture, a website <del>is</del> <em>should be</em> a hierarchy of webpages, a webpage <del>has</del> <em>should have</em> it's own internal hierarchy as well, and i should add that i'm not talking in linear terms either like the header, content and footer regions, thats the structure of the template, visualize it as layers in 3d space, okay first you have the template layer, thats the frame around the content area, the content area is where the actual document lives, and in the document you have articles and media and so on, and the articles have content and the articles content has content or references to other articles or documents or pages or sites and so on, at the smallest level each component is an element with attributes and content and i'm constantly reminded of an article i read on nettuts about well formed or well written stylesheets in the back of mind and from that while developing this document i'm really getting into the way things should be, okay so you have an element with attributes and content and not every document has both attributes or content simultaneously you might have a paragraph with no class, role, id whatever but lots of content or you might have an image which is self closing and has no content but has lots of attributes, eg file source, title, whatever is neccasary to get it off the server and into the document, you could have a link with no attributes or content just a simple &lt;a/&gt; then style it with css and give it an action with js. That's not the point, what i'm trying to get accross is that it's open to your interpretation of what should be at that moment, but you need to give yourself a markup writing set of guidelines for standard situations in order to write well formed documents for yourself and if you break it down to the most specific level the end result will be highly desireable, eg in my case, i've decided for markup purposes that all elements with attributes need to have those attributes sorted in a logical order, lets say you have a div with an id, a class and a role defined, what order should those attributes go in? Exactly that id > class > role now even the content of the class attribute should be sorted if need be so for me the order is the most logical one, again, vague to specific, like this, in this document there is a div, it's got siblings because it's part of a set of columns i'm using the grid system so i need to set the number of columns that it spans across the grid in this case it's four out of twelve so the first classname in the class attribute is fourcol and i have style properties that manipulate the first or last columns for layout purposes so the next classname is first cause it's the first column &emdash;more specific, <em>which fourcol is it, <mark>the first one</mark></em>, now the last classname is box and columns with the class box have additional more specific style properties. Let's talk about html5 and template markup, the new elements, header, section, aside and footer, weren't meant for making templates more semantic in terms of DOM it was never meant to be, imho, body > header + section + (aside + aside) + footer. A well formed template should use divs till you get to the div containing the content and the content should be made then made up of sections with roles and those sections should have articles with all the subsequent elements needed to build a well formed article and so on. Which brings me to the realization that this site is malformed. See ya when it's fixed... =/</p>
+					</section>
+					<section role="references"></section>
+					<footer role="meta"></footer>
+				</article>
+			</div>
+		</div>
+	</section>
+	<footer class="container">
+		<div class="row first last">
+			<div class="threelcol first"></div>
+			<div class="ninecol last"></div>
+		</div>
+	</footer>
+	
 	<script src="/js/lib/log.js"></script>
 	<script src="/js/lib/queries.js"></script>
 	<script src="/js/lib/jquery.js"></script>
