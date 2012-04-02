@@ -18,6 +18,7 @@
 	margin-right: 3.8%;
 	float: left;
 	min-height: 1px;
+	padding: 0;
 }
 
 .row .onecol {width: 4.85%;}
@@ -35,30 +36,58 @@
 
 .row .last {margin-right: 0px;}
 
-@media only screen and (max-width:1140px){ /*--- viewport < 1280 ---*/
+@media only screen and (max-width:960px){ /*--- viewport <|= 960 ---*/
 	.row, .container {
 		width: 100%;
-		min-width: 0;
+		min-width: 0px;
 		margin-left: 0px;
 		margin-right: 0px;
 		padding-left: 0px;
 		padding-right: 0px;
 	}
 	
-	.onecol, .twocol,
-	.threecol, .fourcol,
-	.fivecol, .sixcol,
-	.sevencol, .eightcol,
-	.ninecol, .tencol,
-	.elevencol, .twelvecol {
-		width: auto;
+	.row .onecol, .row .twocol,
+	.row .threecol, .row .fourcol,
+	.row .fivecol, .row .sixcol,
+	.row .sevencol, .row .eightcol,
+	.row .ninecol, .row .tencol,
+	.row .elevencol, .row .twelvecol {
+		width: 100%;
 		float: none;
 		margin: 0;
 		padding: 0 20px;
 	}
+	
+	/* Contain floats: h5bp.com/q */
+	.row .onecol:before, .row .twocol:before,
+	.row .threecol:before, .row .fourcol:before,
+	.row .fivecol:before, .row .sixcol:before,
+	.row .sevencol:before, .row .eightcol:before,
+	.row .ninecol:before, .row .tencol:before,
+	.row .elevencol:before, .row .twelvecol:before,	
+	.row .onecol:after, .row .twocol:after,
+	.row .threecol:after, .row .fourcol:after,
+	.row .fivecol:after, .row .sixcol:after,
+	.row .sevencol:after, .row .eightcol:after,
+	.row .ninecol:after, .row .tencol:after,
+	.row .elevencol:after, .row .twelvecol:after { content: ""; display: table; }
+	
+	.row .onecol:after, .row .twocol:after,
+	.row .threecol:after, .row .fourcol:after,
+	.row .fivecol:after, .row .sixcol:after,
+	.row .sevencol:after, .row .eightcol:after,
+	.row .ninecol:after, .row .tencol:after,
+	.row .elevencol:after, .row .twelvecol:after { clear: both; }
+	
+	.row .onecol, .row .twocol,
+	.row .threecol, .row .fourcol,
+	.row .fivecol, .row .sixcol,
+	.row .sevencol, .row .eightcol,
+	.row .ninecol, .row .tencol,
+	.row .elevencol, .row .twelvecol { *zoom: 1; } /* just in case, we automatically hack the floats on cols now that they are like rows */
 }
 
 /* Contain floats: h5bp.com/q */
 .row:before, .row:after { content: ""; display: table; }
 .row:after { clear: both; }
-.row { *zoom: 1; } /* just in case we automatically hack the floats on rows */
+.row { *zoom: 1; } /* just in case we, automatically hack the floats on rows */

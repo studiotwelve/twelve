@@ -1,0 +1,111 @@
+/* @override 
+	http://localhost/css/style.css */
+
+#site-title {
+	color: #ffa500;
+	font-size: 2.5em;
+	letter-spacing: -.15em;
+}
+
+#site-slogan {
+	color: #fff;
+	font-family: "helvetica-25-ultra_light";
+	font-size: .8em;
+	letter-spacing: normal;
+}
+
+#site-description {
+	text-align: right;
+}
+
+header.container {
+	background-image: linear-gradient(top, #333 70%, #222);
+	padding-top: 1em; padding-bottom: 1em;
+}
+
+section.container {
+	background: #ccc;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	color: #333;
+	text-shadow: 0 1px 1px #ffffff;
+}
+
+section.container > h1 {
+	margin-top: 1em;
+}
+
+#slides {
+	background: #aaa;
+	border-bottom: 1px solid #333;
+	min-height: 20em; height: 20em;
+	text-align: center;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+#slides h1 {
+	color: #eee;
+	font: italic bold 2em/10em serif;
+	height: 20em;
+	text-shadow: 0 48px 33px #000000;
+}
+
+.box svg {
+	width: 60%;
+	float: right;
+	padding: 0 0 0;
+	margin: 0 0 12px;
+	stroke-width: 3px;
+}
+
+#html5 {
+	fill: #f1a300;
+	stroke: #d16600;
+}
+
+#css3 {
+	fill: #a9d700;
+	stroke: #658100;
+}
+
+#gridsystem {
+	fill: #00adf8;
+	stroke: #0572c9;
+	width: 75%;
+	margin: -12% 0 -7px -6%;
+}
+
+#blocks {
+	background-image: linear-gradient(top, #ccc 5%, #bbb 80%, #999);
+}
+
+.box {
+	background-image:
+		-webkit-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		-webkit-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+	background-image:
+		 -moz-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		 -moz-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+	background-image:
+		-o-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		-o-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+	background-image:
+		-ms-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		-ms-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+	background-image:
+		linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+	
+	background-position: 100% 0, 100% 0;
+	background-size: 1px 100%, 2px 100%;
+	background-repeat: no-repeat, no-repeat;
+	
+	box-sizing: border-box;
+	padding: 0 2em 2em 0;
+}
+
+.box.last {
+	background: none;
+	box-shadow: none;
+}
