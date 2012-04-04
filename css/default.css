@@ -12,14 +12,12 @@ body {
 	background: #333; /* never use white it's too bright */
 	color: #eee; /* easy on the eyes please */
 	font: normal 16px/1.4em "helvetica-55-roman"; /* force server-side font */
-	/* it's imperitive that you force a default font size for your em measurements - ours is standard */
+	/* it's imperative that you force a default font size for your em measurements - ours is standard */
 }
 
 h1, h2, h3, h4, h5, h6, p {
-	font-weight: normal; /* since wer're on custom fonts */
-	line-height: normal;
-	margin: 0;
-	padding: 0;
+	font-weight: normal; line-height: normal;/* since we're on custom fonts */
+	margin: 0; padding: 0;
 }
 
 h1 { font: normal 2em/normal "helvetica-95-black"} /*save some chars when you can*/
@@ -28,10 +26,29 @@ h3 { font: normal 1.3em/normal "helvetica-75-bold"}
 h4, h5, h6, a { font: normal 1em/normal "helvetica-75-bold"}
 p { margin: 0 0 1em}
 
-a, em, mark, inserted, del, samp, small, strike {
-	text-shadow: none;
-}
+a, em, mark,
+inserted, del,
+samp, small, strike { text-shadow: none; } 
 
 del, strike { color: #888; }
+
+ul {
+	list-style-type: none;
+}
+
+ul li:before {
+	content: "\2605";
+	margin: 0 1em 0 -1em;
+	text-shadow: none;
+}
+li ul li:before { content: "\27A5"; }
+li li ul li:before  { content: "\276F"; }
+li li li ul li:before  { content: "\2022"; }
+li li li li ul li:before  { content: "\2023"; }
+li li li li li ul li:before  { content: "\2013"; }
+
+dl { font: normal 1em/1.4em "palai", Palatino, "Palatino Linotype", serif; } /* Definitions should use serif fonts */
+dl ol { list-style-type: upper-roman; }
+
 
 svg { width: 100%; height: 100%; overflow: hidden; }
