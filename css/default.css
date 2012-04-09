@@ -15,20 +15,21 @@ body {
 	/* it's imperative that you force a default font size for your em measurements - ours is standard */
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3,
+h4, h5, h6, p, pre,
+summary, blockquote {
 	font-weight: normal; line-height: normal;/* since we're on custom fonts */
-	margin: 0; padding: 0;
+	margin: 0 0 .6em; padding: 0;
 }
 
-h1 { font: normal 2em/normal "helvetica-95-black"} /*save some chars when you can*/
-h2 { font: normal 1.6em/normal "helvetica-85-heavy"}
-h3 { font: normal 1.3em/normal "helvetica-75-bold"}
-h4, h5, h6, a { font: normal 1em/normal "helvetica-75-bold"}
-p { margin: 0 0 1em}
+h1 { font: normal 2em/normal "helvetica-95-black" } /*save some chars when you can*/
+h2 { font: normal 1.6em/normal "helvetica-85-heavy" }
+h3 { font: normal 1.3em/normal "helvetica-75-bold" }
+h4, h5, h6, a { font: normal 1em/normal "helvetica-75-bold" }
 
 a, em, mark,
 inserted, del,
-samp, small, strike { text-shadow: none; } 
+samp, small, strike { text-shadow: none } 
 
 del, strike { color: #888; }
 
@@ -41,14 +42,34 @@ ul li:before {
 	margin: 0 1em 0 -1em;
 	text-shadow: none;
 }
-li ul li:before { content: "\27A5"; }
-li li ul li:before  { content: "\276F"; }
-li li li ul li:before  { content: "\2022"; }
-li li li li ul li:before  { content: "\2023"; }
-li li li li li ul li:before  { content: "\2013"; }
+li ul li:before { content: "\27A5" }
+li li ul li:before  { content: "\276F" }
+li li li ul li:before  { content: "\2022" }
+li li li li ul li:before  { content: "\2023" }
+li li li li li ul li:before  { content: "\2013" }
 
-dl { font: normal 1em/1.4em "palai", Palatino, "Palatino Linotype", serif; } /* Definitions should use serif fonts */
-dl ol { list-style-type: upper-roman; }
+ol { list-style-type: decimal-leading-zero }
 
+dl { font: normal 1em/1.4em "palai", Palatino, "Palatino Linotype", serif }
+/* Definitions should use serif fonts */
 
-svg { width: 100%; height: 100%; overflow: hidden; }
+dl ul li:before { content: "\2022" }
+dl ol ul li:before { content: "\2013" }
+
+dt { letter-spacing: .3em } /* there should be some extra space here */
+
+dd.speech { font-style: italic }
+
+aside {
+	float: right;
+	width: 13.45%;
+	clear: both;
+	margin: 0 1.54% 1em;
+	padding: .25em .5em;
+	border: 1px solid #333;
+	font-size: .8em;
+}
+
+svg { width: 100%; height: 100%; overflow: hidden }
+
+.inline { display: inline-block; }

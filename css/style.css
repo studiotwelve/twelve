@@ -1,6 +1,10 @@
 /* @override 
 	http://localhost/css/style.css */
 
+#top h1, #top h2 {
+	margin: 0;
+}
+
 #site-title {
 	color: #ffa500;
 	font-size: 2.5em;
@@ -26,7 +30,7 @@ header.container {
 section.container {
 	background: #ccc;
 	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #333;
 	color: #333;
 	text-shadow: 0 1px 1px #ffffff;
 }
@@ -85,8 +89,8 @@ section.container > h1 {
 		-webkit-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
 		-webkit-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
 	background-image:
-		 -moz-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
-		 -moz-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
+		-moz-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
+		-moz-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
 	background-image:
 		-o-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
 		-o-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
@@ -109,3 +113,35 @@ section.container > h1 {
 	background: none;
 	box-shadow: none;
 }
+
+#cylon {
+	background-image: linear-gradient(#aaa, #666);
+	padding: 5%;
+	border: 1px solid #333;
+}
+
+#cylon .socket {
+	box-shadow:0px 1px 0px 1px rgba(255,255,255,.33), inset 0px 5px 12px 0px rgba(0,0,0,.59);
+	height: 16px;
+	background-image: linear-gradient(#080808, #383838);
+	border-radius: 16px;
+}
+
+#cylon .eye {
+	position: relative;
+	top: -50%;
+	left: 0%;
+	margin-left: -5%;
+	height: 32px;
+	width: 32px;
+	border-radius: 32px;
+	background-image: radial-gradient(rgba(255,0,0,1), rgba(255,0,0,0) 66%);
+	-webkit-animation: cylonSlide 1s infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes cylonSlide { from { left: 0%; } to { left: 90%; } }
+
+aside { background: #efefef; }
+
+*[role=title],
+*[role=name] { margin: 0; }
