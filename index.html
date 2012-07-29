@@ -1,6 +1,5 @@
-<!doctype html><!--@todo:styles,elements,content,etc.-->
-<!--[if lte IE 8]><html class="no-js lte-ie8" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<!doctype html>
+<!--[if IE]><html class="no-js ie" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="imagetoolbar" content="false" />
@@ -10,11 +9,12 @@
 	<title>TWELVE</title>
 	
 	<link rel="stylesheet" href="/css/normalize.css"><!--do-not-modify-->
-	<link rel="stylesheet" href="/css/grid.css"><!--do-not-modify-->
+	<link rel="stylesheet" href="/css/grid.css"><!--do-not-modify-->	
+	<link rel="stylesheet" href="/css/default.css" class="cssfx"><!--do-not-modify-->	
 	
 	<!--the-example-theme-styles-->
 	<link rel="stylesheet" href="//s12.in/fonts/helvetica.css">	
-	<link rel="stylesheet" href="/css/default.css" class="cssfx">	
+	<link rel="stylesheet" href="//s12.in/fonts/proggysquare.css">	
 	<link rel="stylesheet" href="/css/style.css" class="cssfx">	
 	
 	<!--your-styles-->
@@ -238,7 +238,77 @@
 							class="phrases"><strong>by definition</strong> by its very nature; intrinsically: <em>underachievement, by definition, is not due to lack of talent.</em></dd><dd
 							class="origin">ORIGIN late Middle English: from Latin <strong><em>definitio(n-)</em></strong>, from the verb <strong><em>definire &lsquo;set bounds to&rsquo;</em></strong></dd></dl>
 						<h3>Forms</h3>
-						<p></p>
+						<form id="form">
+							<button>Button</button>
+							<fieldset><legend>Input</legend>
+								<label for="hidden">Hidden											<input type="hidden" 					name="hidden" /></label>
+								<label for="text">Text													<input type="text" 						name="text" /></label>
+								<label for="text">Text required									<input type="text" required		name="text-required" /></label>
+								<label for="text">Text read only								<input type="text" readonly		name="text-readonly" value="readonly" /></label>
+								
+								<label for="search">Search											<input type="search" 					name="search" /></label>
+								
+								<label for="tel">Telephone											<input type="tel" 						name="tel" placeholder="000-000-0000" /></label>
+								<label for="url">URL														<input type="url" 						name="url" placeholder="http://domain.tld" /></label>
+								<label for="email">Email												<input type="email" 					name="email" placeholder="name@domain.tld" /></label>
+								<label for="password">Password									<input type="password" 				name="password" /></label>
+								
+								<label for="datetime">Date and Time 						<input type="datetime" 				name="datetime" /></label>
+								<label for="date">Date													<input type="date" 						name="date" /></label>
+								<label for="month">Month												<input type="month" 					name="month" list="months" /></label>
+								<label for="week">Week													<input type="week" 						name="week" /></label>
+								<label for="time">Time													<input type="time"						name="time" /></label>
+								<label for="datetime-local">Local Date and Time <input type="datetime-local"  name="datetime-local" /></label>
+								
+								<label for="number">Number											<input type="number" 					name="number" /></label>
+								<label for="number">Zip: <input type="number" pattern="[0-9]{5}" maxlength="5" name="zip" class="zip" /></label>
+								<label for="range">Range												<input type="range" min="0.00" max="5" step=".05" name="range" /></label>
+								
+								<label for="color">Color
+									<input type="color" name="color" placeholder="#000000" list="grayscale" />
+									<datalist id="grayscale">
+										<option value="#000000">Black</option>
+										<option value="#333333">80% Black</option>
+										<option value="#666666">60% Black</option>
+										<option value="#999999">40% Black</option>
+										<option value="#BBBBBB">20% Black</option>
+										<option value="#DDDDDD">10% Black</option>
+										<option value="#FFFFFF">White</option>
+									</datalist>
+								</label>
+								
+								<label for="checkbox">Checkbox									<input type="checkbox" 				name="checkbox" /></label>
+								<label for="radio">Radio Button									<input type="radio" 					name="radio" /></label>
+								
+								<input type="file" name="file" />
+								<input type="file" name="files" multiple />
+								
+								<input type="image" name="image" src="apple-touch-icon.png" />
+								<input type="submit" name="submit" value="Submit" />
+								<input type="reset" name="reset" value="Reset" />
+								<input type="button" name="button" value="Button" />
+							</fieldset>
+							
+							<fieldset><legend>Other</legend>
+								<label for="keygen">Keygen 			<keygen name="keygen"></keygen></label>
+								<label for="meter">Meter 				<meter min="0" max="10" value="7"></meter></label>
+								<label for="output">Output 			<output name="output">782639</output></label>
+								<label for="progress">Progress 	<progress min="0" max="100" value="33"></progress></label>
+								<select name="select">
+									<option value="0">Option 1</option>
+									<option value="1">Option 2</option>
+									<option value="2">Option 3</option>
+									<option value="3">Option 4</option>
+								</select>
+								<select name="selectx" multiple>
+									<option value="0">Option 1</option>
+									<option value="1">Option 2</option>
+									<option value="2">Option 3</option>
+									<option value="3">Option 4</option>
+								</select>
+								<label for="textarea">Textarea 	<textarea name="textarea"></textarea></label>
+							</fieldset>
+						</form>
 					</section>
 					<footer></footer>
 				</article>
@@ -248,7 +318,7 @@
 	
 	<footer class="container">
 		<div class="row first last">
-			<div class="threelcol first"></div>
+			<div class="threecol first">An example footer area!</div>
 			<div class="ninecol last"></div>
 		</div>
 	</footer>
@@ -259,30 +329,67 @@
 	<script src="/js/lib/finalize.js"></script>
 	<script src="/js/lib/easing.js"></script>
 	<script src="/js/lib/html5support.js"></script>
-	
 	<script>
-	$(function(){		
-		$("svg").each(function(){
-		/*
-		- Issue: the svg element can't have a % width defined by css without breaking the layout with a renegade viewBox height,
-		-- Solution: wait till the viewBox height has been rendered by the DOM and adjust accordingly.
-		*/
-			//$(this).css("height",parseInt($(this).width()));
+	$(function(){
+		$("html").removeClass("no-js"); //Dom is ready and js has arrived!
+				
+		$("svg").each(function(){ /* fix svg sizing */
+		 
 			var cssHeight = parseInt($(this).css("height"));
 			var multiplier = parseInt($(this).css("width"))/parseInt($(this).parent(".box").css("width"));
 			
 			var newHeight = (cssHeight*multiplier)/2; //prevent clipping
 			
 			$(this).css("height", newHeight);
-		});		
+		});
+		
+		$("input[type=range]").after(function(){ /* fix range output */
+			if($(this).attr("value") == "undefined") {
+				$(this).attr("value", $(this).attr("min")+parseInt($(this).attr("max")/2));
+			}
+			return "<output for=\""+$(this).attr("name")+"\">"+$(this).attr("value")+"</output>"
+		}).change(function(){
+			$(this).parent().find("output").text($(this).attr("value"));
+		});
+		
+		$("label").click(function(){ /* make labels clickable */
+			$(this).children("input").focus();
+			$(this).children("input[type=checkbox]").attr("checked", !$(this).children("input[type=checkbox]").attr("checked"));
+			$(this).children("input[type=radio]").attr("checked", !$(this).children("input[type=radio]").attr("checked"));
+		}); /* this broke checkboxes and radio buttons... */
+		
+		$("input[type=checkbox], input[type=radio]").click(function(){
+			$(this).attr("checked", !$(this).attr("checked"));
+		});
+		
+		yepnope({ /* datetime */
+			test : Modernizr.inputtypes && Modernizr.inputtypes.datetime,
+			nope : ['/ui/ui.js', '/ui/ui.css'],
+			callback : function(){$("input[type=datetime]").datepicker({dateFormat:"@"});}
+		});
+		
+		yepnope({ /* date */
+			test : Modernizr.inputtypes && Modernizr.inputtypes.date,
+			nope : ['/ui/ui.js', '/ui/ui.css'],
+			callback : function(){$("input[type=date]").datepicker({dateFormat:"yy-mm-dd"});}
+		});
+		
+		yepnope({ /* month */
+			test : Modernizr.inputtypes && Modernizr.inputtypes.month,
+			nope : ['/ui/ui.js', '/ui/ui.css'],
+			callback : function(){$("input[type=month]").datepicker({dateFormat:"yy-mm"});}
+		});
+				
 	});
 	</script>
 	
-	<script src="/js/script-min.js"></script><!--put minified script.js here-->
-	<!--require gcf--><!--[if lte IE 8 ]>
-	<script src="/js/cfinstall.js">window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})});</script><![endif]-->
+	<script src="/js/script-min.js"></script>
+	
+	<!--[if IE]><!--require gcf-->
+	<script src="/js/cfinstall.js">
+	// We can't trust microsoft, it's just not stable, conventional, or standard compliant
+	// We need to 86 poorly written software!
+		window.attachEvent('onload',function()CFInstall.check({mode:'overlay'})});
+	</script><![endif]-->
 </body>
 </html>
-<!--
-The existence of anything is an infinitely tangled mess of paradigm in a pile of infinitely tangled messes of paradigm, while trying to untangle it may seem desirable it is a task that is counter productive and completely unnecessary if you could let your consciousness be you could truly be free.
--->

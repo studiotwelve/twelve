@@ -73,3 +73,48 @@ aside {
 svg { width: 100%; height: 100%; overflow: hidden }
 
 .inline { display: inline-block; }
+
+form fieldset {
+	border: 2px groove;
+	margin: .25em; padding: .25em;
+}
+
+fieldset legend {
+	padding: 0 .5em 0 .25em;
+}
+
+form label, form input[type=file], form input[type=submit],
+form input[type=reset], form input[type=button] {
+	display: block;
+	float: left;
+	padding: .25em;
+	min-width: 30%;
+}
+
+form input[type=image] {
+	display: block;
+	float: left;
+	padding: .25em;
+}
+
+form .zip { width: 5em; }
+
+form select { vertical-align: top; }
+
+form textarea { display: block; }
+
+form input[type=image] { vertical-align: middle; }
+
+form output {
+	display: inline-block; padding: 0 .5em; margin: 0 0 0 .25em;
+	min-width: 1em; min-height: 1.4em;
+	background: #000; color: #0f0;
+	border: 1px inset; border-top: 1px solid #666; border-left: 1px solid #666;
+	box-shadow: 0px .7em 5px 0px rgba(255, 255, 255, .33) inset;
+	font: 1em/1.4em "proggysquare"; text-shadow: none;
+	vertical-align: bottom; text-align: center;
+}
+
+form input[readonly] {
+	font-style: italic; color: #999;
+}
