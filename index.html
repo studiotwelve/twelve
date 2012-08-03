@@ -10,12 +10,12 @@
 	
 	<link rel="stylesheet" href="/css/normalize.css"><!--do-not-modify-->
 	<link rel="stylesheet" href="/css/grid.css"><!--do-not-modify-->	
-	<link rel="stylesheet" href="/css/default.css" class="cssfx"><!--do-not-modify-->	
+	<link rel="stylesheet" href="/css/default.css" class="cssfx"><!--do-not-modify-->		
 	
 	<!--the-example-theme-styles-->
-	<link rel="stylesheet" href="//s12.in/fonts/helvetica.css">	
-	<link rel="stylesheet" href="//s12.in/fonts/proggysquare.css">	
-	<link rel="stylesheet" href="/css/style.css" class="cssfx">	
+	<link rel="stylesheet" href="/fonts/helvetica.css">	
+	<link rel="stylesheet" href="/fonts/proggysquare.css">	
+	<link rel="stylesheet" href="/css/style.css" class="cssfx">
 	
 	<!--your-styles-->
 	<link rel="stylesheet" href="/css/custom.css" class="cssfx">
@@ -238,7 +238,7 @@
 							class="phrases"><strong>by definition</strong> by its very nature; intrinsically: <em>underachievement, by definition, is not due to lack of talent.</em></dd><dd
 							class="origin">ORIGIN late Middle English: from Latin <strong><em>definitio(n-)</em></strong>, from the verb <strong><em>definire &lsquo;set bounds to&rsquo;</em></strong></dd></dl>
 						<h3>Forms</h3>
-						<form id="form">
+						<form id="form" method="post" action="index.html">
 							<button>Button</button>
 							<fieldset><legend>Input</legend>
 								<label for="hidden">Hidden											<input type="hidden" 					name="hidden" /></label>
@@ -262,19 +262,10 @@
 								
 								<label for="number">Number											<input type="number" 					name="number" /></label>
 								<label for="number">Zip: <input type="number" pattern="[0-9]{5}" maxlength="5" name="zip" class="zip" /></label>
-								<label for="range">Range												<input type="range" min="0.00" max="5" step=".05" name="range" /></label>
+								<label for="range">Range												<input type="range" min="0.00" max="5" step=".5" name="range" /></label>
 								
 								<label for="color">Color
-									<input type="color" name="color" placeholder="#000000" list="grayscale" />
-									<datalist id="grayscale">
-										<option value="#000000">Black</option>
-										<option value="#333333">80% Black</option>
-										<option value="#666666">60% Black</option>
-										<option value="#999999">40% Black</option>
-										<option value="#BBBBBB">20% Black</option>
-										<option value="#DDDDDD">10% Black</option>
-										<option value="#FFFFFF">White</option>
-									</datalist>
+									<input type="color" name="color" placeholder="#000000" />
 								</label>
 								
 								<label for="checkbox">Checkbox									<input type="checkbox" 				name="checkbox" /></label>
@@ -332,6 +323,37 @@
 	<script>
 	$(function(){
 		$("html").removeClass("no-js"); //Dom is ready and js has arrived!
+		
+		if($.browser.webkit) { $("html").addClass('webkit'); }
+		
+		$(window).resize(function(){
+			var msg = $(window).outerWidth()+", "+$(window).outerHeight();
+			
+			var bsize = $('body').find('#bsize');
+			
+			var bhtml = '<div id="bsize"><a class="x" /><span class="size"></span><a class="drop" /><div class="menu"><a id="1280x800">1280x800</a></div></div>';
+			
+			if(bsize.length == 0) { $('body').append(bhtml); }
+			
+			bsize.show().find('.size').text(msg);
+			bsize.find('a.x').click(function(){
+				$(this).delay(1000).queue(function(){
+					bsize.remove();			
+				});
+			});
+			
+			if(msg == '1280, 800') {
+				bsize.find('.size').text('Perfect!');
+			}
+			
+			bsize.find('a.drop').click(function(){
+				$(this).siblings('.menu').slideToggle();
+			});
+			
+			$("#1280x800").click(function(){
+				window.open($(location).attr("href"),"1280x800", width=1280, height=800);
+			});
+		});
 				
 		$("svg").each(function(){ /* fix svg sizing */
 		 
@@ -344,12 +366,19 @@
 		});
 		
 		$("input[type=range]").after(function(){ /* fix range output */
-			if($(this).attr("value") == "undefined") {
-				$(this).attr("value", $(this).attr("min")+parseInt($(this).attr("max")/2));
+			var rMax = parseFloat($(this).attr("max"));
+			var rMin = parseFloat($(this).attr("min"));
+			var rVal = $(this).attr("value");
+			
+			if($(this).attr("value")=="undefined") {
+				rVal = (rMax-rMin)/2;
+				
+				$(this).attr("value", rVal);
 			}
-			return "<output for=\""+$(this).attr("name")+"\">"+$(this).attr("value")+"</output>"
+			
+			return "<output for='"+$(this).attr("name")+"' value='"+rVal+"'>"+rVal+"</output>";
 		}).change(function(){
-			$(this).parent().find("output").text($(this).attr("value"));
+			$(this).siblings("output").attr("value", $(this).attr("value"));
 		});
 		
 		$("label").click(function(){ /* make labels clickable */
@@ -362,24 +391,110 @@
 			$(this).attr("checked", !$(this).attr("checked"));
 		});
 		
-		yepnope({ /* datetime */
-			test : Modernizr.inputtypes && Modernizr.inputtypes.datetime,
-			nope : ['/ui/ui.js', '/ui/ui.css'],
-			callback : function(){$("input[type=datetime]").datepicker({dateFormat:"@"});}
-		});
+		var chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 		
-		yepnope({ /* date */
-			test : Modernizr.inputtypes && Modernizr.inputtypes.date,
-			nope : ['/ui/ui.js', '/ui/ui.css'],
-			callback : function(){$("input[type=date]").datepicker({dateFormat:"yy-mm-dd"});}
-		});
-		
-		yepnope({ /* month */
-			test : Modernizr.inputtypes && Modernizr.inputtypes.month,
-			nope : ['/ui/ui.js', '/ui/ui.css'],
-			callback : function(){$("input[type=month]").datepicker({dateFormat:"yy-mm"});}
-		});
+		yepnope({
+			test : Modernizr.inputtypes && (Modernizr.inputtypes.datetime || Modernizr.inputtypes.date || Modernizr.inputtypes.month || Modernizr.inputtypes.time || Modernizr.inputtypes.week || Modernizr.inputtypes['datetime-local'] || Modernizr.inputtypes.color) && !chrome,
+			
+			nope : ['/ui/ui.js', '/ui/ui.css', '/farbtastic/farbtastic.js', '/farbtastic/farbtastic.css'],
+			
+			complete : function(){
+				$("input[type=datetime]").datetimepicker();
 				
+				if(!chrome) { $("input[type=date]").datepicker(); } else {
+					$("input[type=date]").click(function(e){
+					     e.preventDefault();
+					     e.checkValidity(null);
+					}).datepicker({
+					    onSelect: function(dateText){
+					        var d = new Date(dateText);
+					        
+					        var dy = d.getFullYear().toString();
+					        					        
+					        var dm = d.getMonth().toString();
+					        if(dm.length<2) { dm = "0"+dm; }
+					        
+					        var dd = d.getDate().toString();
+					        if(dd.length<2) { dd = "0"+dd; }
+
+					        var dv = dm+'/'+dd+'/'+dy;
+					        
+					        $(this).attr("value", dv).trigger('change');
+					    }
+					});
+				}
+				
+				$("input[type=month]").datepicker({dateFormat:"MM"});
+				
+				$("input[type=time]").timepicker({});
+				
+				$("input[type=week]").datepicker({
+					showWeek: true,
+					dateFormat: "yy-mm-dd",
+					beforeShow: function(dateText, inst) {
+			            
+				        $(".ui-datepicker-calendar tr").live("mousemove", function() { 
+				            $(this).find("td a").addClass("ui-state-hover"); 
+				        });
+				        
+				        $(".ui-datepicker-calendar tr").live("mouseleave", function() { 
+				            $(this).find("td a").removeClass("ui-state-hover");
+				        });
+					},
+					onClose: function(dateText, inst) { 
+				        var wk = $.datepicker.iso8601Week(new Date(dateText));
+				        
+				        if (parseInt(wk) < 10) { wk = "0" + wk; }       
+				            
+				        var date = new Date(dateText);
+				        var year = date.getFullYear();
+				
+				        if (isNaN(wk)) { $(this).val(""); } else { $(this).val(year + "-W" + wk); }
+				
+				        $(".ui-datepicker-calendar tr").die("mousemove");
+				        $(".ui-datepicker-calendar tr").die("mouseleave");
+					}
+				}).click(function(){
+					$(this).val(""); $(this).attr("value", "");
+				    $("tr td.ui-datepicker-week-col").each(function(){
+				    	$(this).wrapInner("<a class='ui-state-default' />").find("a").click(function(){
+				    		var myCell = $(this).parent("tr td.ui-datepicker-week-col");
+				    		var myRow = $(this).parent(".ui-datepicker-calendar tr");
+				    		var mySibs = $(this).find("td a");
+				    		mySibs.trigger("click");
+				    	});
+				    });
+				});
+				
+				$("input[type=datetime-local]").datetimepicker();
+				
+				$("input[type=color]").append("<div id='fb-dialog'><div id='fb-picker'></div></div>").click(function(){					
+					if (!$(this).attr("value")) {
+						$(this).attr("value", "#000000");
+					}
+					
+					var myOffset = $(this).offset();
+					
+					var myX = myOffset.left;					
+					var myY = $(document).height()-myOffset.top+$(this).outerHeight()+4;
+										
+					$('#fb-picker').farbtastic($("input[type=color]"));
+					$('#fb-dialog').dialog({
+						draggable : false,
+						resizable : false,
+						width : 234,
+						title : 'Choose:',
+						position : [myX,myY],
+						buttons : { "Done" : function(){ $(this).dialog("close"); $(this).siblings("input[type=color]").attr("value", $('#fb-picker').farbtastic($(this).siblings("input[type=color]")).color); }}
+					});										
+				});
+				
+				yepnope({
+					test : Modernizr.inputtypes && Modernizr.inputtypes.range,
+					nope : ['/js/lib/range.js'],
+				});				
+			}
+		});										
 	});
 	</script>
 	

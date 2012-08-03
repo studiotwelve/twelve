@@ -1,5 +1,6 @@
 /* @override 
-	http://localhost/css/default.css */
+	http://localhost/css/default.css
+	http://twelve.s12.in/css/default.css */
 
 /* ==|== default.css =======================================================
    Extend normalize.css...
@@ -74,6 +75,8 @@ svg { width: 100%; height: 100%; overflow: hidden }
 
 .inline { display: inline-block; }
 
+form { text-align: right; }
+
 form fieldset {
 	border: 2px groove;
 	margin: .25em; padding: .25em;
@@ -81,6 +84,12 @@ form fieldset {
 
 fieldset legend {
 	padding: 0 .5em 0 .25em;
+	text-align: left;
+}
+
+form label:hover {
+	border-radius: 2px;
+	background: #666; color: #fff; text-shadow: none;
 }
 
 form label, form input[type=file], form input[type=submit],
@@ -88,13 +97,12 @@ form input[type=reset], form input[type=button] {
 	display: block;
 	float: left;
 	padding: .25em;
-	min-width: 30%;
+	min-width: 31%;
 }
 
 form input[type=image] {
-	display: block;
-	float: left;
-	padding: .25em;
+	display: block; float: left;
+	padding: .25em; vertical-align: middle;
 }
 
 form .zip { width: 5em; }
@@ -103,18 +111,88 @@ form select { vertical-align: top; }
 
 form textarea { display: block; }
 
-form input[type=image] { vertical-align: middle; }
-
 form output {
 	display: inline-block; padding: 0 .5em; margin: 0 0 0 .25em;
 	min-width: 1em; min-height: 1.4em;
 	background: #000; color: #0f0;
 	border: 1px inset; border-top: 1px solid #666; border-left: 1px solid #666;
 	box-shadow: 0px .7em 5px 0px rgba(255, 255, 255, .33) inset;
-	font: 1em/1.4em "proggysquare"; text-shadow: none;
+	font-family: "proggysquare"; text-shadow: none;
 	vertical-align: bottom; text-align: center;
 }
 
-form input[readonly] {
+form input[readonly], form input[readonly=readonly] {
 	font-style: italic; color: #999;
 }
+
+.ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
+	height: 2px; margin-top: .6em;
+	background: #999; border: 1px solid #666;
+	box-shadow: 0px 1px 1px #000 inset;
+	border-radius: 10em;
+}
+
+a.ui-slider-handle.ui-state-default.ui-corner-all {
+	background: none; border: none;
+	width: 26px; height: 28px;
+	background-image: url('/img/bg-slide.png');
+	outline: none;
+	margin-top: -10px;
+}
+
+.webkit input[type=range] {
+	-webkit-appearance: none;
+	background: #999; box-shadow: inset 0px 1px 1px #000, 0px 1px 0px 1px rgba(255,255,255,.59);
+	border: 1px solid #666; border-radius: 10em;
+	height: 3px; vertical-align: super; outline: none;
+}
+
+.webkit input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: none; border-radius: none; border: none;
+	background-image: url('/img/bg-slide.png');
+	outline: none; width: 26px; height: 28px;
+}
+
+.ui-datepicker-week-col, .ui-datepicker-week-col.ui-state-hover  {
+	text-align: center;
+}
+
+form input[type=checkbox], form input[type=radio] { vertical-align: top; margin-top: .25em; }
+
+.webkit form input[type=checkbox], .webkit form input[type=radio] {
+	-webkit-appearance: none; -moz-appearance: none;
+	width: 1em; height: 1em; border-radius: 4px;
+	outline: none; background: #666; border: 1px solid #333333;
+	box-shadow: inset 0px 1px 3px black, 0px 1px 1px 0px white;
+}
+
+.webkit form input[type=checkbox][checked=checked], .webkit form input[type=radio][checked=checked] {
+	background: transparent url(/ui/images/ui-icons_ff00ff_256x240.png) no-repeat -64.5px -145px;
+}
+
+.webkit form input[type=radio] { 	border-radius: 2em; }
+.webkit form input[type=radio][checked=checked]{ background-position: -80.5px -145px}
+
+#bsize {
+	position: fixed; top: 0; right: 0;
+	color: #0f0; font-family: 'proggysquare';
+	background: rgba(0,0,0,0.59); border-radius: 4px;
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.59); cursor: pointer;
+	margin: 1em; padding: .5em; display: none;
+}
+
+#bsize .menu {
+	display: none;
+}
+
+#bsize a.drop {
+	display: inline-block;
+	width: 16px; height: 16px;
+	background: transparent url(/ui/images/ui-icons_ff00ff_256x240.png) no-repeat -64.5px -1px;
+}
+
+#bsize a.x {
+	display: inline-block;
+	width: 16px; height: 16px;
+	background: transparent url(/ui/images/ui-icons_ff00ff_256x240.png) no-repeat -96.5px -129px;}

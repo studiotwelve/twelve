@@ -1,5 +1,6 @@
 /* @override 
-	http://localhost/css/style.css */
+	http://localhost/css/style.css
+	http://twelve.s12.in/css/style.css */
 
 #top h1, #top h2 {
 	margin: 0;
@@ -45,14 +46,11 @@ section.container > h1 {
 	min-height: 20em; height: 20em;
 	text-align: center;
 	overflow-y: hidden;
-	overflow-x: scroll;
 }
 
 #slides h1 {
-	color: #eee;
-	font: italic bold 2em/10em serif;
-	height: 20em;
-	text-shadow: 0 48px 33px #000000;
+	color: #eee; font: italic bold 2em/10em serif;
+	margin: 0; text-shadow: 0 48px 33px #000000;
 }
 
 .box svg {
@@ -84,7 +82,7 @@ section.container > h1 {
 	background-image: linear-gradient(top, #ccc 5%, #bbb 80%, #999);
 }
 
-.box {
+.box { /* Apparently cssfx doesn't support multiple bg-images */
 	background-image:
 		-webkit-linear-gradient(top, #c9c9c9 33%, #666 66%, #999),
 		-webkit-linear-gradient(top, #c9c9c9 33%, #fff 66%, #999);
@@ -143,5 +141,4 @@ section.container > h1 {
 
 aside { background: #efefef; }
 
-*[role=title],
-*[role=name] { margin: 0; }
+*[role=title], *[role=name] { margin: 0; }
