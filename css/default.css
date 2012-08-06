@@ -174,7 +174,11 @@ form input[type=checkbox], form input[type=radio] { vertical-align: top; margin-
 .webkit form input[type=radio] { 	border-radius: 2em; }
 .webkit form input[type=radio][checked=checked]{ background-position: -80.5px -145px}
 
-
+a.inputx {
+	display: block; position: relative;
+	margin-top: -1.4em; margin-left: -2em; width: 1em; height: 1em;
+	left: 100%; background: transparent url(/ui/images/ui-icons_999999_256x240.png) no-repeat -32.5px -193px;
+}
 
 /**
  * response testing

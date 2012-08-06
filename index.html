@@ -111,7 +111,7 @@
 					<header>
 						<hgroup>
 							<h1 role="title">Sample Article</h1>
-							<h2 role="subtitle">for styling puroposes</h2>
+							<h2 role="subtitle">for styling purposes</h2>
 						</hgroup>
 					</header>
 					<summary>We're going to try and use every element possible inside this article.</summary>
@@ -364,6 +364,29 @@
 			
 			$(this).css("height", newHeight);
 		});
+				
+		$("a.inputx").click(function(){
+			$(this).prev("input").attr("value","");
+			$(this).remove();
+		});
+		
+		/*! @todo fix clear button function addClearButton(obj){
+			obj.hover(function(){
+				obj.after('<a class="inputx" />');
+			}, function(){
+				obj.next('a.inputx').remove();
+			});
+		}
+				
+		$("[type=text],[type=search],[type=tel],[type=url],[type=email],[type=password][type=datetime],[type=date],[type=month],[type=week],[type=datetime-local],[type=time],[type=number],[type=file]").each(function(){
+			if($(this).attr("value")) {
+				addClearButton($(this));
+			} else {
+				$(this).live("keyup", function(){
+					
+				});
+			}
+		});*/
 		
 		$("input[type=range]").after(function(){ /* fix range output */
 			var rMax = parseFloat($(this).attr("max"));
@@ -404,22 +427,21 @@
 				if(!chrome) { $("input[type=date]").datepicker(); } else {
 					$("input[type=date]").click(function(e){
 					     e.preventDefault();
-					     e.checkValidity(null);
 					}).datepicker({
 					    onSelect: function(dateText){
 					        var d = new Date(dateText);
 					        
 					        var dy = d.getFullYear().toString();
 					        					        
-					        var dm = d.getMonth().toString();
-					        if(dm.length<2) { dm = "0"+dm; }
+					        var dm = parseInt((parseInt(d.getMonth())+1)).toString(); /*Math was getting garbled somewhere? fixed*/
+					        if(dm.length<2) { dm = '0'+dm; }
 					        
 					        var dd = d.getDate().toString();
-					        if(dd.length<2) { dd = "0"+dd; }
+					        if(dd.length<2) { dd = '0'+dd; }
 
-					        var dv = dm+'/'+dd+'/'+dy;
-					        
-					        $(this).attr("value", dv).trigger('change');
+					        var dv = dy+'-'+dm+'-'+dd;
+					        					        
+					        $(this).attr('value',dv).trigger('change');
 					    }
 					});
 				}
@@ -443,6 +465,8 @@
 					},
 					onClose: function(dateText, inst) { 
 				        var wk = $.datepicker.iso8601Week(new Date(dateText));
+				        
+				        wk = parseInt(wk); wk = wk-1; /*Math was getting garbled somewhere? fixed*/
 				        
 				        if (parseInt(wk) < 10) { wk = "0" + wk; }       
 				            
