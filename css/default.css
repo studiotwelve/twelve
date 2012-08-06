@@ -161,18 +161,25 @@ a.ui-slider-handle.ui-state-default.ui-corner-all {
 form input[type=checkbox], form input[type=radio] { vertical-align: top; margin-top: .25em; }
 
 .webkit form input[type=checkbox], .webkit form input[type=radio] {
-	-webkit-appearance: none; -moz-appearance: none;
+	-webkit-appearance: none;
 	width: 1em; height: 1em; border-radius: 4px;
 	outline: none; background: #666; border: 1px solid #333333;
 	box-shadow: inset 0px 1px 3px black, 0px 1px 1px 0px white;
 }
 
 .webkit form input[type=checkbox][checked=checked], .webkit form input[type=radio][checked=checked] {
-	background: transparent url(/ui/images/ui-icons_ff00ff_256x240.png) no-repeat -64.5px -145px;
+	background: #666 url(/ui/images/ui-icons_ff00ff_256x240.png) no-repeat -64.5px -145px;
 }
 
 .webkit form input[type=radio] { 	border-radius: 2em; }
 .webkit form input[type=radio][checked=checked]{ background-position: -80.5px -145px}
+
+
+
+/**
+ * response testing
+ */
+
 
 #bsize {
 	position: fixed; top: 0; right: 0;
