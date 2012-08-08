@@ -33,7 +33,7 @@ section.container {
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #333;
 	color: #333;
-	text-shadow: 0 1px 1px #ffffff;
+	text-shadow: 0 1px 1px #fff;
 }
 
 section.container > h1 {
@@ -50,7 +50,7 @@ section.container > h1 {
 
 #slides h1 {
 	color: #eee; font: italic bold 2em/10em serif;
-	margin: 0; text-shadow: 0 48px 33px #000000;
+	margin: 0; text-shadow: 0 48px 33px #000;
 }
 
 .box svg {
@@ -141,4 +141,4 @@ section.container > h1 {
 
 aside { background: #efefef; }
 
-*[role=title], *[role=name] { margin: 0; }
+[class=title], [class=name] { margin: 0; }
