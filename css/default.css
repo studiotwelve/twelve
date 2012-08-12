@@ -1,7 +1,3 @@
-/* @override 
-	http://localhost/css/default.css
-	http://twelve.s12.in/css/default.css */
-
 /* ==|== default.css =======================================================
    Extend normalize.css...
    attempting to create a complete cross-browser/platform UX...
@@ -34,28 +30,29 @@ samp, small, strike { text-shadow: none }
 
 del, strike { color: #888; }
 
-ul {
+[role=main] ul {
 	list-style-type: none;
 }
 
-ul li:before {
-	content: "\2605";
+[role=main] ul li:before {
+	content: "★";
 	margin: 0 1em 0 -1em;
 	text-shadow: none;
-}
-li ul li:before { content: "\27A5" }
-li li ul li:before  { content: "\276F" }
-li li li ul li:before  { content: "\2022" }
-li li li li ul li:before  { content: "\2023" }
-li li li li li ul li:before  { content: "\2013" }
+} /* Specified role main to avoid messing with lists used for other reasons like navs and slideshows and such */
+
+[role=main] li ul li:before { content: "➨" }
+[role=main] li li ul li:before  { content: "➥" }
+[role=main] li li li ul li:before  { content: "•" }
+[role=main] li li li li ul li:before  { content: "‣" }
+[role=main] li li li li li ul li:before  { content: "—" } /* Opera failed to render \2013 switched to actual chars */
 
 ol { list-style-type: decimal-leading-zero }
 
 dl { font: normal 1em/1.4em "palai", Palatino, "Palatino Linotype", serif }
 /* Definitions should use serif fonts */
 
-dl ul li:before { content: "\2022" }
-dl ol ul li:before { content: "\2013" }
+[role=main] dl ul li:before { content: "•" }
+[role=main] dl ol ul li:before { content: "—" }
 
 dt { letter-spacing: .3em } /* there should be some extra space here */
 
@@ -86,12 +83,13 @@ fieldset legend {
 }
 
 form label {
-	display: block;
-	float: left;
+	display: inline-block;
 	padding: .25em;
-	min-width: 31%;
+	min-width: 32%;
 	border-radius: 4px;
-	text-align: right; 
+	text-align: right;
+	box-sizing: border-box;
+	position: relative; 
 }
 
 form label:hover { background: #c0c0c0; }
@@ -110,6 +108,10 @@ form output {
 	box-shadow: 0px .7em 5px 0px rgba(255, 255, 255, .33) inset;
 	font-family: "proggysquare"; text-shadow: none;
 	vertical-align: bottom; text-align: center;
+}
+
+.opera form output {
+	font-size: 11px;
 }
 
 form [readonly] {
@@ -168,6 +170,10 @@ a.inputx {
 	border-color: #900; box-shadow: inset 0px 2px 5px rgba(153,0,0,0.59), 0px 1px 1px #fff;
 }
 
+[required]:valid {
+	border-color: #999; box-shadow: inset 0px 2px 5px rgba(0,0,0,0.33), 0px 1px 1px #fff;
+}
+
 [type=color] { cursor: pointer; }
 
 [type=submit], [type=reset],
@@ -188,7 +194,7 @@ a.inputx {
 [type=week], [type=time], [type=datetime-local] {
 	background-image: url(../ui/images/ui-icons-forms.png);
 	background-repeat: no-repeat; background-position: 1px 2px;
-	background-origin: padding-box; padding-left: 1em;
+	background-origin: padding-box; padding-left: 1em; box-sizing: border-box;
 }
 
 [type=search] {background-position: 1px -14px;}
@@ -201,6 +207,27 @@ a.inputx {
 [type=month] {background-position: 1px -126px}
 [type=time] {background-position: 1px -141px}
 
+[type=search] {border-radius: 1em;}
+
+div.input-error {
+	position: absolute; text-align: center;
+	background: #f99; border-radius: 4px; box-sizing: border-box;
+	color: #600; box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.6);
+	padding: .5em; margin-top: 15px; right: 0; z-index: 999;
+}
+
+div.input-error:after{
+	content:""; position:absolute; top:-30px; right:1em;
+	border:15px solid transparent; border-bottom-color:#f99;
+}
+
+audio, video {
+	width: 100%;
+}
+
+/* ==|== jQuery.ui ======================================================= */
+
+
 /**
  * response testing
  */
@@ -212,6 +239,10 @@ a.inputx {
 	background: rgba(0,0,0,0.59); border-radius: 4px;
 	box-shadow: 0px 2px 7px rgba(0,0,0,0.59); cursor: pointer;
 	margin: 1em; padding: .5em; display: none;
+}
+
+.opera #bsize {
+	font-size: 11px;
 }
 
 #bsize .menu {
